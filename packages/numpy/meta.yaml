@@ -1,6 +1,6 @@
 package:
   name: numpy
-  version: 1.25.0dev
+  version: 1.25.0.dev0
   tag:
     - min-scipy-stack
   top-level:
@@ -11,10 +11,21 @@ source:
   url: https://github.com/numpy/numpy/archive/99eaf340c.zip
   sha256: 2b3223dbd9612f4d2a0800bb10a7406cbdb0705b292d2a06906512a368bc7cb0
 
+  patches:
+    - patches/0001-Patch-versioneer.patch
+
 build:
   backend-flags: --disable-optimization
   cflags: |
     -Wno-return-type
+  script: |
+    set -x
+    python versioneer.py setup || echo ignoring error
+    python setup.py version
+
+  # Unvendoring needs a released version ...
+  unvendor-tests: false
+
   cross-build-env: true
   cross-build-files:
     - numpy/core/include/numpy/numpyconfig.h

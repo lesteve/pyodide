@@ -1,0 +1,24 @@
+From 5b797773cec176ebdd9f4ec59fc4ec430fc02bf1 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Lo=C3=AFc=20Est=C3=A8ve?= <loic.esteve@ymail.com>
+Date: Mon, 13 Mar 2023 13:39:15 +0100
+Subject: [PATCH] Patch versioneer
+
+---
+ versioneer.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/versioneer.py b/versioneer.py
+index 07ecc67bf..5afc82206 100644
+--- a/versioneer.py
++++ b/versioneer.py
+@@ -1715,6 +1715,7 @@ def get_versions(verbose=False):
+ 
+     Returns dict with two keys: 'version' and 'full'.
+     """
++    return {'version': '1.25.0.dev0', 'full-revisionid': '99eaf340ca9b6d06d65c4ef9a5e96a1a83c42909', 'dirty': None, 'date': None, 'error': None}
+     if "versioneer" in sys.modules:
+         # see the discussion in cmdclass.py:get_cmdclass()
+         del sys.modules["versioneer"]
+-- 
+2.34.1
+
