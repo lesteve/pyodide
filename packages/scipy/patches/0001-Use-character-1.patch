@@ -1,0 +1,32 @@
+From d02a30218f4dc99a71333901a6191a6fefd5398a Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Lo=C3=AFc=20Est=C3=A8ve?= <loic.esteve@ymail.com>
+Date: Tue, 14 Mar 2023 18:15:34 +0100
+Subject: [PATCH] Use character*1
+
+---
+ scipy/sparse/linalg/_eigen/arpack/arpack.pyf.src | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/scipy/sparse/linalg/_eigen/arpack/arpack.pyf.src b/scipy/sparse/linalg/_eigen/arpack/arpack.pyf.src
+index 64640d4e8..cb3cf998c 100644
+--- a/scipy/sparse/linalg/_eigen/arpack/arpack.pyf.src
++++ b/scipy/sparse/linalg/_eigen/arpack/arpack.pyf.src
+@@ -28,13 +28,13 @@ python module _arpack ! in
+         subroutine <s,d>seupd(rvec,howmny,select,d,z,ldz,sigma,bmat,n,which,nev,tol,resid,ncv,v,ldv,iparam,ipntr,workd,workl,lworkl,info) ! in :_arpack:src/sseupd.f
+             threadsafe   ! it's not really threadsafe, but we use a lock on the Python side, so keeping GIL is not needed
+             logical :: rvec
+-            character :: howmny
++            character*1 :: howmny
+             logical dimension(ncv) :: select
+             <_rd> dimension(nev),intent(out),depend(nev) :: d
+             <_rd> dimension(n,nev),intent(out),depend(n,nev) :: z
+             integer optional,check(shape(z,0)==ldz),depend(z) :: ldz=shape(z,0)
+             <_rd> :: sigma
+-            character :: bmat
++            character*1 :: bmat
+             integer optional,check(len(resid)>=n),depend(resid) :: n=len(resid)
+             character*2 :: which
+             integer :: nev 
+-- 
+2.34.1
+
