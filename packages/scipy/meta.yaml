@@ -34,6 +34,7 @@ source:
     - patches/0011-Change-qh_eachvoronoi_all-FILE-type.patch
     - patches/0012-Remove-meson-requirements.patch
     - patches/0013-Fix-fitpack.patch
+    - patches/0014-Build-only-selected-packages.patch
 
 build:
   cflags: |

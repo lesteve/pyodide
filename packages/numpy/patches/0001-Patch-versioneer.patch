@@ -15,7 +15,7 @@ index 07ecc67bf..5afc82206 100644
  
      Returns dict with two keys: 'version' and 'full'.
      """
-+    return {'version': '1.25.0.dev0', 'full-revisionid': '99eaf340ca9b6d06d65c4ef9a5e96a1a83c42909', 'dirty': None, 'date': None, 'error': None}
++    return {'version': '1.24.2', 'full-revisionid': '99eaf340ca9b6d06d65c4ef9a5e96a1a83c42909', 'dirty': None, 'date': None, 'error': None}
      if "versioneer" in sys.modules:
          # see the discussion in cmdclass.py:get_cmdclass()
          del sys.modules["versioneer"]
