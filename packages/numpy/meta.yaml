@@ -6,17 +6,18 @@ package:
   top-level:
     - numpy
 source:
-  url: https://files.pythonhosted.org/packages/42/38/775b43da55fa7473015eddc9a819571517d9a271a9f8134f68fb9be2f212/numpy-1.23.5.tar.gz
-  sha256: 1b1766d6f397c18153d40015ddfc79ddb715cabadc04d2d228d4e5a8bc4ded1a
-  # url: https://github.com/numpy/numpy/archive/99eaf340c.zip
-  # sha256: a499cd02020b2835f9f6962261eb70a29a4d791b8349384f46f84d4d3edb0921
-
+  # url: https://files.pythonhosted.org/packages/42/38/775b43da55fa7473015eddc9a819571517d9a271a9f8134f68fb9be2f212/numpy-1.23.5.tar.gz
+  # sha256: 1b1766d6f397c18153d40015ddfc79ddb715cabadc04d2d228d4e5a8bc4ded1a
+  #
   # patches:
-  #  - patches/0001-Patch-versioneer.patch
+  #   - patches/0001-ENH-Add-support-for-platforms-with-missing-fenv-flag.patch
+  #   - patches/0002-ENH-Fix-pointer-size-determination-for-cross-build.patch
+  #   - patches/0003-BUG-Fix-datetime_to_timedelta_resolve_descriptors-signature.patch
+  url: https://github.com/numpy/numpy/archive/99eaf340c.zip
+  sha256: a499cd02020b2835f9f6962261eb70a29a4d791b8349384f46f84d4d3edb0921
+
   patches:
-    - patches/0001-ENH-Add-support-for-platforms-with-missing-fenv-flag.patch
-    - patches/0002-ENH-Fix-pointer-size-determination-for-cross-build.patch
-    - patches/0003-BUG-Fix-datetime_to_timedelta_resolve_descriptors-signature.patch
+   - patches/0001-Patch-versioneer.patch
 
 build:
   backend-flags: --disable-optimization
@@ -26,9 +27,6 @@ build:
   #   set -x
   #   python versioneer.py setup || echo ignoring error
   #   python setup.py version
-
-  # Unvendoring needs a released version ...
-  unvendor-tests: false
 
   cross-build-env: true
   cross-build-files:
