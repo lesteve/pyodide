@@ -137,7 +137,7 @@ async function main() {
     const dynlibs = sideGlobals.get("dynlibs_to_load");
     for (const dynlib of dynlibs) {
         try {
-            await py._module.API.loadDynlib(dynlib);
+            await py._module.API.loadDynlib(dynlib, true);
         } catch(e){
             console.error("Failed to load lib ", dynlib);
             console.error(e);
